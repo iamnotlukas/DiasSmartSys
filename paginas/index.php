@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Verifica se a senha está correta
     if ($senha === 'cpspnaac') {
-        $_SESSION['logado'] = true; // Define a sessão como logado
-        header('Location: index.php'); // Redireciona para a página index.php
+        $_SESSION['autenticado'] = true; // Define a sessão como autenticado
+        header('Location: op.php'); // Redireciona para a página op.php
         exit();
     } else {
         $erro = 'Senha incorreta. Tente novamente.';

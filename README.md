@@ -2,7 +2,7 @@
 
 <p><strong>DiasSmartSys</strong> é um sistema inovador de controle de acesso, desenvolvido especificamente para atender às necessidades de segurança e eficiência em instalações militares, portos e ambientes controlados. Este sistema é fundamental para a Marinha do Brasil, proporcionando uma transformação significativa na maneira como as identificações e o controle de pessoal a bordo são gerenciados.</p>
 
-<h2>Importância para a Marinha do Brasil</h2>
+<h2>Importância para a Marinha do Brasil</h2><img src="https://i.imgur.com/wWZG3NG.png" width="60" >
 
 <p>O <strong>DiasSmartSys</strong> tem um papel crucial na otimização dos processos de identificação e segurança das pessoas a bordo das embarcações e instalações da Marinha. Com a implementação deste sistema, foi possível alcançar uma mudança gigantesca na eficiência do controle de acesso, garantindo que apenas pessoal autorizado tenha acesso às áreas sensíveis. Isso não só aumenta a segurança operacional, mas também melhora a confiabilidade das informações sobre quem está a bordo, minimizando riscos e garantindo a integridade das operações militares.</p>
 

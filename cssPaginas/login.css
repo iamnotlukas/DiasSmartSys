@@ -33,6 +33,11 @@ td:nth-child(7) { /* Hora de Registro */
   width: 30px; /* A largura será apenas o conteúdo */
 }
 
+td:nth-child(4){
+  width: 40px; /* A largura será apenas o conteúdo */
+
+}
+
 tr:nth-child(even) {
   background-color: #f2f2f2; /* Cor de fundo para linhas pares */
 }

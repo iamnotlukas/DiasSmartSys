@@ -57,6 +57,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastramento de Usuário</title>
     <link rel="stylesheet" href="../cssPaginas/cadastro.css">
+    <style>
+        button {
+            background-color: #007bff; /* Exemplo de cor de fundo */
+            color: white; /* Cor do texto */
+            border: none; /* Remove bordas */
+            padding: 10px 20px; /* Espaçamento interno */
+            text-align: center; /* Centraliza o texto */
+            text-decoration: none; /* Remove sublinhado */
+            display: inline-block; /* Permite definir largura e altura */
+            font-size: 16px; /* Tamanho da fonte */
+            margin: 10px 2px; /* Margem */
+            cursor: pointer; /* Cursor de ponteiro */
+            border-radius: 4px; /* Bordas arredondadas */
+        }
+
+        button a {
+            color: white; /* Mantém a cor do texto branco dentro do link */
+            text-decoration: none; /* Remove sublinhado do link */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+        }
+
+        #cad {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+#cad:hover {
+  background-color: #45a049;
+}
+
+    </style>
 </head>
 <body>
     <div class="login-container">
@@ -75,7 +113,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="observacoes">Observações (máx. 50 caracteres):</label>
             <textarea id="observacoes" name="observacoes" maxlength="50"></textarea>
 
-            <button type="submit">Cadastrar</button>
+            <button id="cad" type="submit">Cadastrar</button>
+            <button type="button" onclick="window.location.href='op.php'" style="margin: 10px 0; color: white; text-decoration: none;">Voltar</button>
             <h5>Desenvolvido por MN-RC DIAS 24.0729.23</h5>
         </form>
         <?php

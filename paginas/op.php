@@ -71,6 +71,8 @@ if (isset($_POST['delete'])) {
             <a href="gerar_pdf.php">Gerar PDF</a>
 
         </ul>
+        <h5 style="text-align: center;">Desenvolvido por MN-RC DIAS 24.0729.23</h5>
+
     </div>
 </body>
 </html>

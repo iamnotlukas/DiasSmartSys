@@ -34,6 +34,8 @@ CREATE TABLE `registros` (
   `data_nascimento` date NOT NULL,
   `observacoes` varchar(50) DEFAULT NULL,
   `hora_registro` timestamp NOT NULL DEFAULT current_timestamp()
+  `horaSaida` timestamp NULL,
+  `motivo` varchar(50) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

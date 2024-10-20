@@ -23,6 +23,9 @@ CREATE TABLE registros (
     data_nascimento DATE NOT NULL,
     observacoes VARCHAR(50),
     hora_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    horaSaida TIMESTAMP NULL,
+    motivo VARCHAR(50) NOT NULL,
     FOREIGN KEY (cpf) REFERENCES usuarios(cpf)
 );
+
 

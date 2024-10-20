@@ -16,17 +16,30 @@ try {
 // Verifica se o botão "dar baixa" foi clicado
 if (isset($_POST['dar_baixa'])) {
     $id = $_POST['id'];
-    $horaSaida = date('Y-m-d H:i:s'); // Pega a hora atual
+    
+    // Pega a hora atual e subtrai 5 horas
+    $horaSaida = date('Y-m-d H:i:s', strtotime('-5 hours')); 
 
     try {
         // Atualiza a coluna horaSaida
         $stmt = $conexao->prepare("UPDATE registros SET horaSaida = :horaSaida WHERE id = :id");
         $stmt->execute(['horaSaida' => $horaSaida, 'id' => $id]);
 
-        echo "<script>alert('Baixa registrada com sucesso');</script>";
+        // Define uma variável de sessão para o alerta
+        $_SESSION['alert'] = 'Baixa registrada com sucesso';
+        
+        // Redireciona para a mesma página
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
     } catch (PDOException $e) {
         echo "Erro: " . $e->getMessage();
     }
+}
+
+// Verifica se existe um alerta na sessão e exibe
+if (isset($_SESSION['alert'])) {
+    echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
+    unset($_SESSION['alert']); // Limpa o alerta após exibir
 }
 
 // Função para formatar a data e hora
@@ -48,6 +61,27 @@ function formatarHora($hora) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuários</title>
     <link rel="stylesheet" href="../cssPaginas/login.css">
+    <style>
+        .btn-voltar {
+  display: inline-block; /* Para o botão se comportar como um bloco */
+  padding: 10px 20px; /* Espaçamento interno */
+  margin: 10px auto; /* Margem superior/inferior de 10px e centralização horizontal */
+  background-color: #007BFF; /* Cor de fundo azul */
+  color: white; /* Cor do texto branco */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para pointer ao passar o mouse */
+  text-align: center; /* Centraliza o texto */
+  text-decoration: none; /* Remove o sublinhado do texto */
+  transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
+}
+
+.btn-voltar:hover {
+  background-color: #0056b3; /* Cor de fundo quando o mouse está sobre o botão */
+}
+
+    </style>
 </head>
 <body>
     <h3>Dados Registrados</h3>
@@ -86,5 +120,6 @@ function formatarHora($hora) {
             </tr>
         <?php endif; ?>
     </table>
-</body>
+    <button type="button" class="btn-voltar" onclick="window.location.href='op.php'">Voltar</button>
+  </body>
 </html>

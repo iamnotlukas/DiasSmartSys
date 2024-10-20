@@ -1,7 +1,6 @@
 <?php
 session_start(); // Inicia a sessão
 include '../ConexaoBanco/conexao.php'; // Inclua a conexão
-include '../Autenticacao/autenticacao.php'; // Inclui a autenticação
 
 // Inicializa variáveis
 $registros = [];
@@ -57,11 +56,11 @@ function formatarHora($hora) {
             <th>ID</th>
             <th>CPF</th>
             <th>Nome Completo</th>
-            <th>Data de Nascimento</th>
+            <th style="width:40px;">Data de Nascimento</th>
             <th>Observações</th>
             <th>Hora de Registro</th>
             <th>Hora de Saída</th>
-            <th>Ações</th>
+            <th style="width:40px;">Ações</th>
         </tr>
         <?php if ($registros): ?>
             <?php foreach ($registros as $registro): ?>

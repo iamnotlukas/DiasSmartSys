@@ -39,6 +39,11 @@ a {
   transition: background-color 0.3s, color 0.3s;
 }
 
+li a#delete:hover
+{
+  background-color:#c82333;
+  color: white;
+}
 a:hover {
   background-color: #007bff;
   color: white;

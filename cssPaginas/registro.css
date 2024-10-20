@@ -43,6 +43,7 @@ button {
   border-radius: 4px; /* Bordas arredondadas */
   cursor: pointer; /* Muda o cursor ao passar o mouse */
   font-size: 16px; /* Tamanho da fonte */
+  margin: 10px 0;
 }
 
 button:hover {

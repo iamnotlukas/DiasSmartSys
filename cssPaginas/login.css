@@ -51,3 +51,23 @@ tr:hover {
   text-align: center;
   font-weight: bold;
 }
+
+
+.btn-voltar {
+  display: inline-block; /* Para o botão se comportar como um bloco */
+  padding: 10px 20px; /* Espaçamento interno */
+  margin: 10px auto; /* Margem superior/inferior de 10px e centralização horizontal */
+  background-color: #007BFF; /* Cor de fundo azul */
+  color: white; /* Cor do texto branco */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para pointer ao passar o mouse */
+  text-align: center; /* Centraliza o texto */
+  text-decoration: none; /* Remove o sublinhado do texto */
+  transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
+}
+
+.btn-voltar:hover {
+  background-color: #0056b3; /* Cor de fundo quando o mouse está sobre o botão */
+}

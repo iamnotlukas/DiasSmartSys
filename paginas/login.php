@@ -2,6 +2,9 @@
 session_start(); // Inicia a sessão
 include '../ConexaoBanco/conexao.php'; // Inclua a conexão
 
+// Define o fuso horário para São Paulo
+date_default_timezone_set('America/Sao_Paulo');
+
 // Inicializa variáveis
 $registros = [];
 
@@ -17,8 +20,8 @@ try {
 if (isset($_POST['dar_baixa'])) {
     $id = $_POST['id'];
     
-    // Pega a hora atual e subtrai 5 horas
-    $horaSaida = date('Y-m-d H:i:s', strtotime('-5 hours')); 
+    // Pega o horário atual
+    $horaSaida = date('Y-m-d H:i:s'); 
 
     try {
         // Atualiza a coluna horaSaida

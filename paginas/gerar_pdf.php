@@ -27,23 +27,32 @@ $pdf->setPrintFooter(false); // Não imprime o rodapé
 // Adiciona uma página
 $pdf->AddPage();
 
+// Conexão ao banco de dados
+include '../ConexaoBanco/conexao.php'; // Inclua a conexão
+
+// Conta o total de registros na tabela
+$totalAcessos = 0;
+try {
+    $stmt = $conexao->query("SELECT COUNT(*) as total FROM registros");
+    $result = $stmt->fetch();
+    $totalAcessos = $result['total'];
+} catch (PDOException $e) {
+    echo "Erro: " . $e->getMessage();
+}
+
 // Escreve o conteúdo
-$html = '<h3 style="text-align: center; color: #333;">Dados Registrados</h3>';
+$html = '<h3 style="text-align: center; color: #333;">Relatório de Registros</h3>';
 $html .= '<h5 style="text-align:center">Desenvolvido por MN-RC DIAS</h5>';
+$html .= '<h5 style="text-align: center;">Total de Acessos: ' . $totalAcessos . '</h5>';
 $html .= '<table style="width: 100%; border-collapse: collapse;">'; // Usando border-collapse
 $html .= '<tr style="background-color: #007BFF; color: white;">
-             <th style="width: 20px; padding: 10px;">ID</th>
              <th style="padding: 10px;">CPF</th>
              <th style="padding: 10px; width:40%">Nome Completo</th>
              <th style="padding: 10px;">Data de Nascimento</th>
-             <th style="padding: 10px; width:40px">Motivo</th>
-             <th style="padding: 10px;">Observações</th>
-             <th style="width: 30px; padding: 10px;">Acesso</th>
+             <th style="padding: 10px; width:50px">Motivo</th>
+             <th style="width: 30px; padding: 40px;">Acesso</th>
              <th style="width: 30px; padding: 10px;">Saída</th>
           </tr>';
-
-// Conexão ao banco de dados
-include '../ConexaoBanco/conexao.php'; // Inclua a conexão
 
 // Consulta todos os registros na tabela registros
 try {
@@ -52,12 +61,10 @@ try {
 
     foreach ($registros as $registro) {
         $html .= '<tr>
-                    <td style="padding: 10px;">' . $registro['id'] . '</td>
                     <td style="padding: 10px;">' . $registro['cpf'] . '</td>
                     <td style="padding: 10px;">' . strtoupper($registro['nome_completo']) . '</td>
                     <td style="padding: 10px;">' . formatarData($registro['data_nascimento']) . '</td>
                     <td style="padding: 10px;">' . $registro['motivo'] . '</td>
-                    <td style="padding: 10px;">' . $registro['observacoes'] . '</td>
                     <td style="padding: 10px;">' . formatarHora($registro['hora_registro']) . '</td>
                     <td style="padding: 10px;">' . ($registro['horaSaida'] ? formatarHora($registro['horaSaida']) : '') . '</td>
                   </tr>';

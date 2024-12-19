@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verifica se a senha está correta
     if ($senha === 'cpspnaac') {
         $_SESSION['autenticado'] = true; // Define a sessão como autenticado
-        header('Location: op.php'); // Redireciona para a página op.php
+        header('Location: paginas/op.php'); // Redireciona para a página op.php
         exit();
     } else {
         $erro = 'Senha incorreta. Tente novamente.';
@@ -21,11 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../cssPaginas/index.css">
+    <link rel="stylesheet" href="cssPaginas/index.css">
 </head>
 <body>
     <div class="login-container">
-        <img src="../imagens/logoMarinha.png" style="width: 20%; margin-bottom: 10px;">
+        <img src="imagens/logoMarinha.png" style="width: 20%; margin-bottom: 10px;">
         <h2>Acesso Restrito</h2>
         <form method="POST">
             <label for="senha">Senha:</label>

@@ -57,36 +57,131 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastramento de Usuário</title>
-  <link rel="stylesheet" href="../cssPaginas/cadastro.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  body {
+    background-color: #f8f9fa;
+    padding-top: 2rem;
+  }
+
+  .cadastro-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-title {
+    color: #004080;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .form-control {
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-control:focus {
+    border-color: #004080;
+    box-shadow: 0 0 0 0.2rem rgba(0, 64, 128, 0.25);
+  }
+
+  .form-label {
+    font-weight: 500;
+    color: #495057;
+  }
+
+  .btn-primary {
+    background-color: #004080;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #003366;
+    transform: translateY(-1px);
+  }
+
+  .error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .developer-credit {
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+  }
+
+  textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+  }
+  </style>
 </head>
 
 <body>
-  <div class="login-container">
-    <img src="../imagens/logoMarinha.png" style="width: 20%; margin-bottom: 10px;">
-    <h2>Cadastramento de Usuário</h2>
-    <form method="POST">
-      <label for="nome_completo">Nome Completo:</label>
-      <input type="text" id="nome_completo" name="nome_completo" required>
+  <div class="container">
+    <div class="cadastro-container">
+      <h2 class="form-title text-center">Cadastramento de Usuário</h2>
+      <form method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="nome_completo" class="form-label">Nome Completo:</label>
+          <input type="text" class="form-control" id="nome_completo" name="nome_completo" required>
+          <div class="invalid-feedback">
+            Por favor, insira o nome completo.
+          </div>
+        </div>
 
-      <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" name="cpf" maxlength="11" required>
+        <div class="mb-3">
+          <label for="cpf" class="form-label">CPF:</label>
+          <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" required>
+          <div class="invalid-feedback">
+            Por favor, insira um CPF válido com 11 dígitos.
+          </div>
+        </div>
 
-      <label for="data_nascimento">Data de Nascimento:</label>
-      <input type="date" id="data_nascimento" name="data_nascimento" required>
+        <div class="mb-3">
+          <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
+          <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+          <div class="invalid-feedback">
+            Por favor, selecione a data de nascimento.
+          </div>
+        </div>
 
-      <label for="observacoes">Observações (máx. 50 caracteres):</label>
-      <textarea id="observacoes" name="observacoes" maxlength="50"></textarea>
+        <div class="mb-4">
+          <label for="observacoes" class="form-label">Observações (máx. 50 caracteres):</label>
+          <textarea class="form-control" id="observacoes" name="observacoes" maxlength="50"></textarea>
+          <div class="invalid-feedback">
+            As observações não podem exceder 50 caracteres.
+          </div>
+        </div>
 
-      <button type="submit">Cadastrar</button>
-      <h5>Desenvolvido por MN-RC DIAS 24.0729.23</h5>
-    </form>
-    <?php
-        // Exibe a mensagem de erro ou sucesso, se houver
-        if (isset($erro)) {
-            echo '<p class="error">' . $erro . '</p>';
-        }
-        ?>
-  </div>
+        <?php if (isset($erro)): ?>
+        <div class="alert alert-danger" role="alert">
+          <?php echo $erro; ?>
+        </div>
+        <?php endif; ?>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <button type="button" onclick="window.location.href='op.php'" class="btn btn-secondary">Voltar</button>
+        </div>
+      </form>
+      <p class="developer-credit">Desenvolvido por MN-RC DIAS 24.0729.23</p>
+    </div>
   </div>
 
   <!-- Bootstrap Bundle com Popper -->

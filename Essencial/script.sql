@@ -24,6 +24,9 @@ CREATE TABLE registros (
     observacoes VARCHAR(50),
     motivo VARCHAR(50),
     hora_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    horaSaida TIMESTAMP NULL,
+    motivo VARCHAR(50) NOT NULL,
     FOREIGN KEY (cpf) REFERENCES usuarios(cpf)
 );
+
 
